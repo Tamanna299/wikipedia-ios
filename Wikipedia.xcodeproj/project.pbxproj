@@ -2636,6 +2636,9 @@
 		D8FEECCD1DE3729400B883F0 /* WMFChange.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FEECCC1DE3729400B883F0 /* WMFChange.m */; };
 		E1CFD6E6210C103900D8E37C /* ExploreCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CA612920D1675800EF0C4A /* ExploreCardViewController.swift */; };
 		EB8237532970AE6A00FD629E /* WMFItemSourceExcludingActivityTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8237522970AE6A00FD629E /* WMFItemSourceExcludingActivityTypes.swift */; };
+		F377510D2D96F33700EC2478 /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F377510C2D96F33100EC2478 /* DeepLinkHandler.swift */; };
+		F377510E2D96F33700EC2478 /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F377510C2D96F33100EC2478 /* DeepLinkHandler.swift */; };
+		F377510F2D96F33700EC2478 /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F377510C2D96F33100EC2478 /* DeepLinkHandler.swift */; };
 		FF2090F02500247100849774 /* ThreeLineHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2090EE2500247100849774 /* ThreeLineHeaderView.swift */; };
 		FF5555642771388F00925099 /* CollectionViewContextMenuShowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5555632771388F00925099 /* CollectionViewContextMenuShowing.swift */; };
 		FF555565277287F300925099 /* CollectionViewContextMenuShowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5555632771388F00925099 /* CollectionViewContextMenuShowing.swift */; };
@@ -4651,6 +4654,7 @@
 		D8FFF6932031CB3E00A028E0 /* cy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = cy; path = cy.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		D8FFF6942031CB4000A028E0 /* tcy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = tcy; path = tcy.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		EB8237522970AE6A00FD629E /* WMFItemSourceExcludingActivityTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMFItemSourceExcludingActivityTypes.swift; sourceTree = "<group>"; };
+		F377510C2D96F33100EC2478 /* DeepLinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
 		FF0261872627B2D800CBD55F /* kcg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = kcg; path = kcg.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FF19C1AB260548FD000AC20B /* kcg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = kcg; path = kcg.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FF19C1AC26054909000AC20B /* kcg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = kcg; path = kcg.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
@@ -7109,6 +7113,7 @@
 		BC45D5451C31E092007C72F3 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				F377510C2D96F33100EC2478 /* DeepLinkHandler.swift */,
 				D4B0ADFF19365F4600F0AC90 /* Analytics */,
 				BC45D57D1C32F3EA007C72F3 /* Diagnostics */,
 				BC45D5461C31E0C0007C72F3 /* App View Controller */,
@@ -9932,6 +9937,7 @@
 				676F39282745FB2000F4D33D /* NotificationsCenterFiltersViewModel.swift in Sources */,
 				83F1096E23D0E787003F3E9E /* RandomArticleViewController.swift in Sources */,
 				7A715661226972DF0066FEC4 /* InsertMediaImageTypeSettingsViewController.swift in Sources */,
+				F377510D2D96F33700EC2478 /* DeepLinkHandler.swift in Sources */,
 				7A20AE082057F39C005FB5DF /* UIView+Identifier.swift in Sources */,
 				7A29A5CE1F6C49C600E8F42B /* CollectionViewUpdater.swift in Sources */,
 				B0E803711C0CD9A80065EBC0 /* TableOfContentsAnimator.swift in Sources */,
@@ -11166,6 +11172,7 @@
 				D8CE25B31E698E2400DAE2E0 /* WMFReferencePageViewController.swift in Sources */,
 				6782DBC82343FDE4003FA21B /* DiffListContextCell.swift in Sources */,
 				B3F21D101EB0EBB4000ED0BB /* PlaceSearchService.swift in Sources */,
+				F377510F2D96F33700EC2478 /* DeepLinkHandler.swift in Sources */,
 				D8CE25BC1E698E2400DAE2E0 /* WikiTextSectionUploader.m in Sources */,
 				83ACF8E728E504CF000F3B6F /* SharedContainerCacheHousekeeping.swift in Sources */,
 				7A0DE50120CEEC760032AB57 /* ExploreFeedSettingsViewController.swift in Sources */,
@@ -11714,6 +11721,7 @@
 				6782DBC92343FDE4003FA21B /* DiffListContextCell.swift in Sources */,
 				B3F21D111EB0EBB4000ED0BB /* PlaceSearchService.swift in Sources */,
 				D8EC3EB91E9BDA35006712EB /* WikiTextSectionUploader.m in Sources */,
+				F377510E2D96F33700EC2478 /* DeepLinkHandler.swift in Sources */,
 				83ACF8E628E504CF000F3B6F /* SharedContainerCacheHousekeeping.swift in Sources */,
 				7A0DE50220CEEC760032AB57 /* ExploreFeedSettingsViewController.swift in Sources */,
 				D8EC3EBB1E9BDA35006712EB /* WMFAuthLinkLabel.swift in Sources */,

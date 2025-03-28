@@ -133,6 +133,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
         
+        DeepLinkHandler.shared.handle(url: firstURL)
+        
         guard let activity = NSUserActivity.wmf_activity(forWikipediaScheme: firstURL) ?? NSUserActivity.wmf_activity(for: firstURL) else {
             resumeAppIfNecessary()
             return

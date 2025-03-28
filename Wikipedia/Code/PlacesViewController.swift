@@ -9,6 +9,10 @@ import MapKit
 class PlacesViewController: ArticleLocationCollectionViewController, UISearchBarDelegate, ArticlePopoverViewControllerDelegate, PlaceSearchSuggestionControllerDelegate, NSFetchedResultsControllerDelegate, UIPopoverPresentationControllerDelegate, ArticlePlaceViewDelegate, UIGestureRecognizerDelegate {
 
     fileprivate var mapView: MapView!
+    
+    var isWaitingForDeepLinkSearch: Bool = false
+
+    var pendingCoordinateSearch: (coordinate: CLLocationCoordinate2D, name: String?)?
 
     @IBOutlet weak var mapContainerView: UIView!
 
@@ -745,6 +749,40 @@ class PlacesViewController: ArticleLocationCollectionViewController, UISearchBar
             })
         }
     }
+    
+    @objc func triggerSearchForCoordinates(_ coordinate: CLLocationCoordinate2D, name: String?) {
+        pendingCoordinateSearch = (coordinate, name)
+
+        if isViewLoaded && view.window != nil {
+            print(" view is ready, triggering search")
+            performCoordinateSearch(coordinate, name: name)
+            pendingCoordinateSearch = nil
+            isWaitingForDeepLinkSearch = false
+
+        } else {
+            print("view not ready, deferring to viewDidAppear")
+        }
+    }
+
+    private func performCoordinateSearch(_ coordinate: CLLocationCoordinate2D, name: String?) {
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion(center: coordinate, span: span)
+        
+        currentSearch = PlaceSearch(
+            filter: .top,
+            type: .location,
+            origin: .user,
+            sortStyle: .links,
+            string: name,
+            region: region,
+            localizedDescription: name ?? WMFLocalizedString("places-deeplink-search", value: "Search from deeplink", comment: "Search triggered by deep link"),
+            searchResult: nil
+        )
+            
+        self.viewMode = .map
+        self.updatePlaces()
+    }
+
 
     func showDidYouMeanButton(search: PlaceSearch) {
         guard let description = search.localizedDescription else {
@@ -2257,6 +2295,9 @@ class PlacesViewController: ArticleLocationCollectionViewController, UISearchBar
     }
 
     func zoomAndPanMapView(toLocation location: CLLocation) {
+        if isWaitingForDeepLinkSearch {
+            return
+        }
         let region = [location.coordinate].wmf_boundingRegion(with: 10000)
         mapRegion = region
         if let searchRegion = currentSearchRegion, isDistanceSignificant(betweenRegion: searchRegion, andRegion: region) {
